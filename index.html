@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Makanan Cafe</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Pemesanan Makanan Cafe</h1>
+        <form id="orderForm">
+            <label for="nama">Nama:</label>
+            <input type="text" id="nama" name="nama" required>
+
+            <label for="menu">Pilih Menu:</label>
+            <select id="menu" name="menu" required>
+                <option value="">-- Pilih Makanan --</option>
+                <option value="Nasi Goreng">Nasi Goreng</option>
+                <option value="Spaghetti">Spaghetti</option>
+                <option value="Burger">Burger</option>
+                <option value="Kopi Latte">Kopi Latte</option>
+                <option value="Teh Tarik">Teh Tarik</option>
+            </select>
+
+            <label for="jumlah">Jumlah:</label>
+            <input type="number" id="jumlah" name="jumlah" min="1" required>
+
+            <button type="submit">Pesan Sekarang</button>
+        </form>
+        <div id="output"></div>
+    </div>
+
+    <script>
+        const form = document.getElementById('orderForm');
+        const output = document.getElementById('output');
+
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+            const nama = form.nama.value;
+            const menu = form.menu.value;
+            const jumlah = form.jumlah.value;
+
+            output.innerHTML = `<p>Terima kasih <strong>${nama}</strong> telah memesan <strong>${jumlah} ${menu}</strong>.</p>`;
+        });
+    </script>
+</body>
+</html>
